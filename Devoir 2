@@ -1,0 +1,31 @@
+#coding: utf-8
+
+#Voici mes impressions : L'étape 1 était assez simple. La deux a été un peu plus laborieuse, et je ne suis même pas certain que ça englobe toutes les lignes. Pour la troisième, je suppose qu'il faut créer une bibliothèque qui catégorise chacun des chiffres romains en chiffres normaux. Bref, ça dépasse mes compétences (pour le moment). Aussi, j'ai deux codes différents, mais je ne saurais assembler le tout en un seul Print. C'est probablement dû au fait que les "csv.reader" et les "next" s'entrelacent dans ma formule, mais je ne sais pas où les place pour que les deux fonctionnent ensemble.
+
+import csv
+
+fichier = "concordia1.csv"
+f1 = open(fichier)
+f2 = open(fichier)
+
+
+longTitre = csv.reader(f1)
+next=(longTitre)
+for ligne in longTitre:
+  print(ligne[2])
+  print(len(ligne[2])) 
+
+
+
+type = csv.reader(f2)
+next(type)
+for ligne in type:
+    if "Ph.D" in ligne[6]:
+        print("Doctorat")
+    elif "Ph. D" in ligne[6]:
+        print("Doctorat")
+    elif "Theses (M." in ligne[6]:
+        print("Maîtrise")
+
+#Si j'avais à faire une formule finale pour le print final, ça devrait, j'imagine, ressembler à ça. (?)
+# print(ligne[1],ligne[0],"a rédigé un mémoire de",type,"contenant",nbPages," pages et dont le titre contient",longTitre,"caractères")
